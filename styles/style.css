@@ -1,0 +1,765 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(../assets/images/lore-background2.png);
+    padding-bottom: 10px;
+}
+
+#audio-settings {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    width: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    z-index: 100;
+}
+
+.audio-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #CDB891;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.audio-img {
+    position: relative;
+    height: 50%;
+    object-fit: contain;
+}
+
+#play-pause-audio {
+    margin-top: 5px;
+}
+
+#play-pause-img.pause {
+    left: 0px;
+}
+
+#play-pause-img.play {
+    left: 2px;
+}
+
+#volume-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: opacity .2s;
+}
+
+#volume-menu:not(.active){
+    pointer-events: none;
+    opacity: 0;
+}
+
+#volume-menu.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+#volume-range {
+    writing-mode: bt-lr;
+    appearance: slider-vertical;
+    height: 80px;
+    accent-color: #000;
+    background: transparent;
+    cursor: pointer;
+}
+
+#volume-range::-webkit-slider-runnable-track {
+    background: #CDB891;
+    width: .5rem;
+    border-radius: .25rem;
+}
+
+#volume-range::-webkit-slider-thumb {
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #FFF;
+    transform: translateX(4px);
+    cursor: pointer;
+}
+
+#volume-range::-moz-range-track {
+    background: #CDB891;
+    width: .5rem;
+    border-radius: .25rem;
+}
+
+#volume-range::-moz-range-thumb {
+    border: none;
+    border-radius: 0;
+    background-color: #000;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+#intro {
+    width: 100vw;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    backdrop-filter: opacity(0);
+}
+
+#intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../assets/images/background.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: brightness(.3);
+    z-index: -2;
+}
+
+#game-title {
+    position: relative;
+    font-size: 70px;
+    font-family: "Petit Formal Script", system-ui;
+    text-align: center;
+    color: #CDB891;
+    text-shadow: 3px 3px 2px #000;
+    background-color: transparent;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    animation: opacity-reveal 1s .5s forwards;
+}
+
+.section-title {
+    color: #CDB891;
+    font-family: 'Cinzel Decorative', sans-serif;
+    position: relative;
+    text-shadow: 2px 2px 1px #000;
+}
+
+#lore-title {
+    pointer-events: none;
+    opacity: 0;
+    animation: opacity-reveal .5s 1.2s forwards;
+}
+
+#lore1 {
+    width: 100%;
+    background-color: #101112cc;
+    padding: 15px;
+    color: #E8EBEE;
+    font-family: "Cinzel", sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    pointer-events: none;
+    transform: translateY(15px);
+    opacity: 0;
+    animation: slide-up-reveal .5s 1.8s forwards;
+}
+
+#elements-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: stretch;
+    row-gap: 50px;
+}
+
+.element {
+    width: 850px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000;
+    cursor: pointer;
+    filter: brightness(1);
+    transition: filter .5s;
+}
+
+.element:hover {
+    filter: brightness(1.1);
+}
+
+.element:not(.active) {
+    pointer-events: none;
+    transform: translateY(15px);
+    opacity: 0;
+}
+
+.element.active {
+    pointer-events: none;
+    transform: translateY(15px);
+    opacity: 0;
+    animation: slide-up-reveal .5s forwards;
+}
+
+.element-img {
+    width: 100%;
+}
+
+.element-datas {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #101112cc;
+    color: #F2F2F2;
+}
+
+.element-title{
+    font-family: 'Cinzel Decorative', sans-serif;
+    margin-bottom: 5px;
+}
+
+.element-description{
+    font-size: 14px;
+    font-weight: 100;
+    font-family: 'Cinzel Decorative', sans-serif;
+}
+
+.lore-containers, .game-infos-containers {
+    width: 100%;
+    background-color: #101112cc;
+    padding: 15px;
+    color: #E8EBEE;
+}
+
+.lore-containers > h2, .game-infos-containers > h2 {
+    font-family: "Cinzel", sans-serif;
+    margin-bottom: 5px;
+}
+
+.lore-containers > p, .game-infos-containers > p {
+    font-family: Arial, sans-serif;
+    text-align: justify;
+}
+
+.scroll-slide:not(.active){
+    pointer-events: none;
+    transform: translateY(15px);
+    opacity: 0;
+}
+
+.scroll-slide.active {
+    animation: slide-up-reveal .5s 0s forwards;
+}
+
+#lore2 {
+    margin-top: 20px;
+}
+
+.game-infos-containers {
+    margin-bottom: 20px;
+}
+
+.section-title:not(#lore-title):not(.active){
+    pointer-events: none;
+    opacity: 0;
+}
+
+.section-title:not(#lore-title).active{
+    animation: opacity-reveal .5s 0s forwards;
+}
+
+#characters-container {
+    width: 100%;
+    border: 2px solid #101112cc;
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    align-items: center;
+    justify-items: center;
+}
+
+#left-container {
+    grid-area: left;
+}
+
+#right-container {
+    grid-area: right;
+}
+
+.arrow-container {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.arrow-container:hover {
+    background-color: #CDB891;
+}
+
+.arrow-container:hover > .character-arrow {
+    color: rgb(0, 53, 51);
+}
+
+.arrow-container:not(:hover) > .character-arrow {
+    color: #CDB891;
+}
+
+.arrow-container, .character-arrow {
+    transition: .2s;
+}
+
+#left-arrow {
+    position: relative;
+    right: 3px;
+}
+
+#right-arrow {
+    position: relative;
+    left: 3px;
+}
+
+#middle-container {
+    width: 500px;
+    object-fit: contain;
+    overflow: hidden;
+    margin: 20px 0;
+    grid-area: image;
+}
+
+#character-images-container {
+    display: flex;
+    position: relative;
+    transition: left .4s;
+}
+
+.character-images {
+    width: 500px;
+    object-fit: contain;
+    user-select: none;
+}
+
+#character-infos {
+    color: #FFF;
+    padding:  0 15px 15px 15px;
+    text-align: center;
+    user-select: none;
+    grid-area: infos;
+}
+
+#character-name {
+    font-family: "Mate SC", sans-serif;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#character-description {
+    font-family: sans-serif;
+}
+
+footer {
+    position: relative;
+    width: 100vw;
+    background: linear-gradient(#003836, #000 40%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-top: 300px;
+}
+
+.footer-category {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-title {
+    color: #FFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#credits {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.credit {
+    list-style-type: none;
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+
+.credit-img {
+    width: 70px;
+    height: 50px;
+    border: 2px solid #CDB891;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.credit-infos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+}
+
+.credit:nth-child(1) > .credit-img {
+    background-image: url(../assets/images/background.png);
+}
+
+.credit:nth-child(2) > .credit-img {
+    background-image: url(../assets/images/elements/earth.png);
+}
+
+.credit:nth-child(3) > .credit-img {
+    background-image: url(../assets/images/elements/fire.png);
+}
+
+.credit:nth-child(4) > .credit-img {
+    background-image: url(../assets/images/elements/water.png);
+}
+
+.credit:nth-child(5) > .credit-img {
+    background-image: url(../assets/images/elements/air.png);
+}
+
+#author {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet, red); 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: 0;
+    animation: background-slide 2s linear infinite;
+    margin-bottom: 50px;
+}
+
+#final-line {
+    position: absolute;
+    border-top: 1px solid #ffffff85;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+}
+
+@keyframes opacity-reveal {
+    from {
+        pointer-events: none;
+        opacity: 0;
+    }
+    to {
+        pointer-events: all;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up-reveal {
+    from {
+        pointer-events: none;
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    to {
+        pointer-events: all;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes background-slide {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 245.167px;
+    }
+}
+
+@media screen and (max-width: 1817px) {
+    section {
+        width: 850px;
+    }
+    
+    .element {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1817px) {
+    section {
+        width: 1750px;
+    }
+
+    .element:nth-child(odd){
+        margin: 0 25px 0 0;
+    }
+
+    .element:nth-child(even){ 
+        margin: 0 0 0 25px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    section {
+        width: calc(100% - 50px);
+    }
+}
+
+@media screen and (max-width: 710px){
+    #middle-container, .character-images {
+        width: calc(100vw - 210px);
+    }
+}
+
+@media screen and (min-width: 710px){
+    #characters-container {
+        grid-template-columns: 1fr 500px 1fr;
+    }
+}
+
+@media screen and (min-width: 710px){
+    #characters-container {
+        grid-template-rows: 540px 1fr;
+    }
+}
+
+@media screen and (max-width: 710px){
+    #characters-container {
+        grid-template-rows: calc(100vw - 210px + 40px) 1fr;
+    }
+}
+
+@media screen and (min-width: 657px){
+    #characters-container {
+        grid-template-areas:
+            "left image right"
+            "left infos right";
+    }
+}
+
+@media screen and (max-width: 657px){
+    #characters-container {
+        grid-template-areas:
+            "left image right"
+            "infos infos infos";
+    }
+}
+
+@media screen and (min-width: 460px){
+    .character-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .character-arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    #middle-container {
+        margin: 10px 0;
+    }
+
+    #characters-container {
+        grid-template-rows: calc(100vw - 210px + 20px) 1fr;
+    }
+
+    #character-name {
+        font-size: 25px;
+    }
+
+    #character-description {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 450px){
+    #character-description {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (min-width: 510px){
+    #character-description {
+        height: 6rem;
+    }
+}
+
+@media screen and (max-width: 510px){
+    #character-description {
+        height: 7rem;
+    }
+}
+
+@media screen and (max-width: 405px){
+    #character-description {
+        height: 8rem;
+    }
+}
+
+@media screen and (max-width: 360px){
+    #character-description {
+        height: 9rem;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .section-title {
+        font-size: 50px;
+        margin: 40px 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .section-title {
+        font-size: 30px;
+        margin: 25px 0;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .section-title {
+        font-size: 25px;
+        margin: 20px 0;
+    }
+}
+
+@media screen and (min-width: 530px){
+    #game-title {
+        font-size: 70px;
+    }
+
+    #intro {
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 530px){
+    #game-title {
+        font-size: 60px;
+    }
+    
+    #intro {
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: 420px){
+    #game-title {
+        font-size: 45px;
+    }
+    
+    #intro {
+        height: 20vh;
+    }
+}
+
+@media screen and (min-width: 620px){
+    #lore1 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 620px){
+    #lore1 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    #lore1 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 620px){
+    .element-title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .element-title {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .element-title {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .element-title {
+        font-size: 19px;
+    }
+}
+
+@media screen and (min-width: 620px){
+    .element-description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .element-description {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .element-description {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .element-description {
+        font-size: 11px;
+    }
+}

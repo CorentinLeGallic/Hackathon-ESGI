@@ -1,0 +1,146 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Gardiens de l'Équilibre</title>
+    <link rel="icon" type="image/x-icon" sizes="256x256" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts//utils/activeElementOnScroll.js"></script>
+    <script src="./scripts/index.js" defer></script>
+</head>
+<body>
+    <audio loop id="background-audio">
+        <source src="./assets/audio/background.mp3" type="audio/ogg">
+        <embed src="./assets/audio/background.mp3" loop="true" hidden="true"> 
+    </audio> 
+    <header></header>
+    <main>
+        <div id="audio-settings">
+            <button type="button" id="play-pause-audio" class="audio-btn">
+                <img src="./assets/images/play-audio.png" alt="" class="audio-img" id="play-pause-img" class="play">
+            </button>
+            <button type="button" id="volume-audio" class="audio-btn">
+                <img src="./assets/images/volume-audio.png" alt="" class="audio-img" id="volume-img" class="play">
+            </button>
+            <div id="volume-menu">
+                <input type="range" name="volume-audio" id="volume-range" min="0" max="100" value="100" orient="vertical">
+            </div>
+        </div>
+        <div id="intro">
+            <h1 id="game-title">Les Gardiens de l'Équilibre</h1>
+        </div>
+        <section id="lore">
+            <h1 class="section-title" id="lore-title">Le Lore</h1>
+            <h2 id="lore1">Dans un monde magique où les éléments règnent en maître, chaque royaume est gouverné par un élément sacré.</h2>
+            <ul id="elements-container">
+                <li class="element" id="earth-element">
+                    <div class="element-datas">
+                        <h2 class="element-title">Le Royaume de la Terre</h2>
+                        <h3 class="element-description">Des montagnes majestueuses s'élevant vers le ciel où d'anciennes forêts abritent des créatures mystiques.</h3>
+                    </div>
+                    <img src="./assets/images/elements/earth.png" alt="" class="element-img">
+                </li>
+                <li class="element" id="fire-element">
+                    <div class="element-datas">
+                        <h2 class="element-title">Le Royaume du Feu</h2>
+                        <h3 class="element-description">Un désert brûlant où des volcans crachent des flammes et où les forgerons créent des armes puissantes.</h3>
+                    </div>
+                    <img src="./assets/images/elements/fire.png" alt="" class="element-img">
+                </li>
+                <li class="element" id="water-element">
+                    <div class="element-datas">
+                        <h2 class="element-title">Le Royaume de l'Eau</h2>
+                        <h3 class="element-description">Un monde maritime mystérieux, où les océans recèlent de secrets profonds.</h3>
+                    </div>
+                    <img src="./assets/images/elements/water.png" alt="" class="element-img">
+                </li>
+                <li class="element" id="air-element">
+                    <div class="element-datas">
+                        <h2 class="element-title">Le Royaume de l'Air</h2>
+                        <h3 class="element-description">Des citadelles flottantes dans les cieux abritant des sages et des voyageurs.</h3>
+                    </div>
+                    <img src="./assets/images/elements/air.png" alt="" class="element-img">
+                </li>
+            </ul>
+            <div class="lore-containers scroll-slide" id="lore2">
+                <h2>L'Ombre Noire</h2>
+                <p>Pendant des siècles, ces royaumes ont vécu en harmonie grâce à l'Équilibre, une force mystérieuse qui maintient les éléments en équilibre. Cependant, l'harmonie est menacée lorsque l'Ombre Noire, une entité maléfique d'origine inconnue, émerge des ténèbres. L'Ombre Noire commence à corrompre les éléments, en détournant leurs pouvoirs à des fins maléfiques. Le monde commence à se fissurer alors que des tremblements de terre dévastateurs, des incendies incontrôlables, des inondations dévastatrices et des tempêtes dévastatrices se multiplient. Les royaumes sont plongés dans le chaos, et les habitants implorent l'aide des Gardiens de l'Équilibre, des héros choisis par les éléments eux-mêmes pour restaurer l'harmonie.</p>
+            </div>
+        </section>
+        <section id="game-infos">
+            <h1 class="section-title">Caractéristiques</h1>
+            <div class="game-infos-containers scroll-slide">
+                <h2>Gameplay</h2>
+                <p>Le jeu est un mélange de jeu de rôle, d'aventure et de stratégie. Les joueurs devront voyager à travers les royaumes, résoudre des énigmes basées sur leur élément, maîtriser leurs pouvoirs, collecter des artefacts anciens et recruter des alliés parmi les habitants des royaumes. Chaque royaume offre son propre ensemble de défis et de mystères à résoudre.</p>
+            </div>
+            <div class="game-infos-containers scroll-slide">
+                <h2>Caractéristiques</h2>
+                <p>Le jeu est un mélange de jeu de rôle, d'aventure et de stratégie. Les joueurs devront voyager à travers les royaumes, résoudre des énigmes basées sur leur élément, maîtriser leurs pouvoirs, collecter des artefacts anciens et recruter des alliés parmi les habitants des royaumes. Chaque royaume offre son propre ensemble de défis et de mystères à résoudre. Au fur et à mesure de leur progression, les joueurs découvriront l'histoire de l'Ombre Noire, les mystères de l'Équilibre et la véritable identité des Gardiens. Ils devront prendre des décisions cruciales qui auront un impact sur l'histoire et le destin des royaumes.</p>
+            </div>
+            <div class="game-infos-containers scroll-slide">
+                <h2>Personnages</h2>
+                <p>Les joueurs incarnent les Gardiens de l'Équilibre, des personnages uniques, chacun lié à un élément spécifique. Chaque Gardien possède des pouvoirs élémentaires uniques qui évoluent au fur et à mesure de leur progression. Par exemple, le Gardien de la Terre peut contrôler la roche et la terre, tandis que le Gardien du Feu peut créer et manipuler les flammes.</p>
+            </div>
+            <div id="characters-container">
+                <div id="left-container">
+                    <div class="arrow-container" id="left-arrow-container">    
+                        <svg id="left-arrow" class="character-arrow" fill="currentColor" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m1352.005.012 176.13 176.13-783.864 783.989 783.864 783.74L1352.005 1920 391.887 960.13z" fill-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+                <div id="middle-container">
+                    <div id="character-images-container">
+                        <img class="character-images" src="./assets/images/characters/16.png" alt="" id="previous-character">
+                        <img class="character-images" src="./assets/images/characters/1.png" alt="" id="current-character">
+                        <img class="character-images" src="./assets/images/characters/2.png" alt="" id="next-character">
+                    </div>
+                </div>
+                <div id="character-infos">
+                    <h4 id="character-name">Euclydia</h4>
+                    <h5 id="character-description">Euclydia, la Flamme Ardente, est une mage de renom connue pour sa maîtrise exceptionnelle du feu. Héritière des flammes ancestrales, elle a consacré sa vie à protéger les royaumes contre les forces obscures. Son artefact mystique et son habileté magique font d'elle une redoutable protectrice des terres enflammées, prête à défendre ses alliés avec une passion ardente.</h5>
+                </div>
+                <div id="right-container">
+                    <div class="arrow-container" id="right-arrow-container">
+                        <svg id="right-arrow" class="character-arrow" fill="currentColor" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M568.13.012 392 176.142l783.864 783.989L392 1743.87 568.13 1920l960.118-959.87z" fill-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-category">
+            <h2 class="footer-title">Crédits</h2>
+            <ul id="credits">
+                <li class="credit">
+                    <div class="credit-img"></div>
+                    <span class="credit-infos">Auteur inconnu -&nbsp<a href="https://robinpiree.com/blog/fantasy-world-ideas">Robin Piree</a></span>
+                </li>
+                <li class="credit">
+                    <div class="credit-img"></div>
+                    <span class="credit-infos">Syntetic Dreams -&nbsp<a href="https://stock.adobe.com/fr/images/beautiful-fantasy-landscape-oasis-a-stunning-journey-through-majestic-mountains-glistening-rivers-radiant-skies-and-lush-summer-trees/568177856">Adobe Stock</a></span>
+                </li>
+                <li class="credit">
+                    <div class="credit-img"></div>
+                    <span class="credit-infos">ARCLYT -&nbsp<a href="https://www.deviantart.com/arclyt/art/heavenly-fire-landscape-1012953600">Deviant Art</a></span>
+                </li>
+                <li class="credit">
+                    <div class="credit-img"></div>
+                    <span class="credit-infos">iftikharalam -&nbsp<a href="https://www.vecteezy.com/photo/33253448-tropical-underwater-world-underwater-world-3d-rendering-underwater-world-fantasy-illustration-of-a-fantasy-world-3d-rendering-ai-generated">Vecteezy</a></span>
+                </li>
+                <li class="credit">
+                    <div class="credit-img"></div>
+                    <span class="credit-infos">ARCLYT -&nbsp<a href="https://www.deviantart.com/arclyt/art/Fantasy-Landscape-1009382242">Deviant Art</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-category">
+            <h2 class="footer-title">Auteur</h2>
+            <span id="author">Corentin LE GALLIC - Célestia</span>
+        </div>
+        <hr id="final-line">
+    </footer>
+</body>
+</html>
